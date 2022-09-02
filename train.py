@@ -12,7 +12,7 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 import copy
 from datetime import datetime
 import numpy as np
-from utils import multiprocess_wrapper
+from utils import *
 from itertools import product
 import sys
 import pickle
@@ -70,7 +70,6 @@ class GridSearch():
     def train(self, params):
         model = GAT(16, 1, **params)
         optimizer=torch.optim.Adam(params=model.parameters(), lr=params['lr'], weight_decay=params['weight_decay'])
-
         lr_scheduler=torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=params['lr_decay'], last_epoch=-1)
         history = fit(model, self.train_data, self.val_data, epochs=30, optimizer=optimizer, lr_scheduler=lr_scheduler, early_stopping=params['early_stopping'], batch_size=params['batch_size'], verbose=False)
         return max(history['val_aucpr'])
@@ -82,7 +81,7 @@ class GridSearch():
 
     def grid_search(self, threads):
         self.params = self.construct_grid(self.params)
-        return multiprocess_wrapper(self.train, self.params, threads)
+        return multiprocess.multiprocess_wrapper(self.train, self.params, threads)
 
 def predict(model, data):
     # predict on data
