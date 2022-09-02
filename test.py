@@ -1,5 +1,5 @@
 import torch
-from model import GNN
+from train import GNN
 from dataset import MolDataset
 from torch_geometric.loader import DataLoader
 import sys, os
