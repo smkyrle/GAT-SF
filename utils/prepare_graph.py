@@ -1,7 +1,7 @@
 # Functions for calculating graph features
 from typing import List, Dict, Any
 from rdkit import Chem
-from utils.ecifs import *
+from ecifs import *
 import numpy as np
 import pandas as pd
 from itertools import chain, product
@@ -282,7 +282,7 @@ def parse_ligand(pdbqt_block: str) -> Dict[str, Any]:
     # return ligand dictionary
     return {'node_features':node_features, 'adjacency_matrix':adjacency_matrix, 'atoms':atoms, 'bonds':bonds, 'bond_types': bond_types}
 
-def get_amino_acid_fingerprints(): -> Dict[str, Any]
+def get_amino_acid_fingerprints() -> Dict[str, Any]:
     ###########################################
     # Function: Return dictionary of amino    #
     # acids' ECIF fingerprints, adjacency     #
