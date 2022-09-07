@@ -1,9 +1,8 @@
 import torch
-from torch.nn import Module, Linear, BCELoss, Parameter, BCEWithLogitsLoss
+from torch.nn import Module, Linear, BCELoss
 from torch.nn.functional import relu, dropout
-from torch_geometric.nn import GATConv, GCNConv, GATv2Conv
+from torch_geometric.nn import GATConv
 from torch_geometric.nn import global_mean_pool
-from torch.nn.functional import binary_cross_entropy
 from torch_geometric.loader import DataLoader
 from dataset import MolDataset
 import os

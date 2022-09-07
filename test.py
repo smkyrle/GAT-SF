@@ -4,7 +4,6 @@ from dataset import MolDataset
 from torch_geometric.loader import DataLoader
 import sys, os
 import os.path as osp
-from sklearn.metrics import average_precision_score, roc_auc_score, roc_curve, precision_recall_curve
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
