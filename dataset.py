@@ -4,6 +4,7 @@ import pandas as pd
 import os.path as osp
 import os, sys
 import typing
+from typing import List, Dict, Any
 import copy
 from utils import *
 from tqdm import tqdm
@@ -45,7 +46,7 @@ class MolDataset(Dataset):
         self.r = receptor
 
 
-    def run_graph_preparation(self, items: tuple[int, Dict]):
+    def run_graph_preparation(self, items: tuple):
         # run graph preparation on receptor ligand pair and save graph
 
         # get index and ligand dictionary
