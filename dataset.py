@@ -148,7 +148,7 @@ class MolDataset(Dataset):
 
 def parse_args(cmd):
 
-    args = {i.replace('-',''): cmd[cmd.index(i) + 1] for i in cmd}
+    args = {i.replace('-',''): cmd[cmd.index(i) + 1] for i in cmd if '-' in i}
 
     if '-dir' not in cmd:
         if not osp.exists('temp'):
@@ -160,6 +160,9 @@ def parse_args(cmd):
 
     if 'ligand' not in args.keys():
         args['ligand'] = None
+
+    if 'process' not in args.keys():
+        args['process'] = False
     return args
 
 if __name__ == '__main__':
