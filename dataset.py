@@ -6,7 +6,7 @@ import os, sys
 import typing
 from typing import List, Dict, Any
 import copy
-from utils import *
+from utils import poses, prepare_graph, multiprocess
 from tqdm import tqdm
 from itertools import chain
 import numpy as np
@@ -33,7 +33,7 @@ class MolDataset(Dataset):
         ###########################################
 
     def __init__(self, receptor=None, ligands=None, distance_cutoff=5.,
-                    threads=4, dataset_dir=None, labels=None):
+                    threads=4, dataset_dir=None, labels=None, poses=None):
         # initialise
         super().__init__()
         self.distance_cutoff = distance_cutoff
@@ -43,6 +43,7 @@ class MolDataset(Dataset):
         self.names = ligands
         self.dataset_dir=dataset_dir
         self.labels = labels
+        self.poses = poses
         self.r = receptor
 
 
@@ -77,7 +78,10 @@ class MolDataset(Dataset):
         ligands = [open(lig, 'r').read() for lig in ligands]
 
         # get ligand poses
-        ligands = [poses.multiple_pose_check(lig) for lig in ligands]
+        if self.poses:
+            ligands = [poses.get_poses(lig, poses=self.poses) for lig in ligands]
+        else:    
+            ligands = [poses.multiple_pose_check(lig) for lig in ligands]
         ligands = list(chain(*ligands))
 
         # prepare poses for graphs
