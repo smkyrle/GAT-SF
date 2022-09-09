@@ -33,7 +33,7 @@ class MolDataset(Dataset):
         ###########################################
 
     def __init__(self, receptor=None, ligands=None, distance_cutoff=5.,
-                    threads=4, dataset_dir=None, labels=None, poses=None):
+                    threads=4, dataset_dir=None, labels=None, poses=None, idx=None):
         # initialise
         super().__init__()
         self.distance_cutoff = distance_cutoff
@@ -45,6 +45,7 @@ class MolDataset(Dataset):
         self.labels = labels
         self.poses = poses
         self.r = receptor
+        self.idx=idx
 
 
     def run_graph_preparation(self, items: tuple):
@@ -52,6 +53,9 @@ class MolDataset(Dataset):
 
         # get index and ligand dictionary
         idx, ligand = items
+        
+        if self.idx:
+            idx = self.idx[idx]
 
         # retrieve labels if provided
         if type(self.labels) == np.ndarray:
