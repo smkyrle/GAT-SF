@@ -71,7 +71,7 @@ class MolDataset(Dataset):
         if osp.isdir(self.ligands):
             ligands = [osp.join(self.ligands, lig) for lig in os.listdir(self.ligands)]
         else:
-            ligands = [ligands]
+            ligands = [self.ligands]
 
         # read ligand pdbqt files
         ligands = [open(lig, 'r').read() for lig in ligands]
@@ -170,5 +170,6 @@ if __name__ == '__main__':
     args = parse_args(sys.argv)
 
     m = MolDataset(receptor=args['receptor'], ligands=args['ligand'], dataset_dir=args['dir'])
+
     if args['process']:
         m.process()
