@@ -11,7 +11,6 @@ def multiple_pose_check(lig, pose_1=False):
     ###########################################
 
     pdbqt_pose_blocks = list()
-    lig_text = open(lig, 'r').read()
     lig_poses = lig_text.split('MODEL')
     for pose in lig_poses:
         lines = pose.split('\n')
