@@ -1,0 +1,11 @@
+Pose name,label,Pose_no,Ligand_Path,Receptor_Path
+3uxd_decoy_04_ligand_02,0,2,3uxd/3uxd_decoy_4_ligand.pdbqt,3uxd/3uxd_receptor.pdbqt
+3l3l_decoy_01_ligand_05,0,5,3l3l/3l3l_decoy_1_ligand.pdbqt,3l3l/3l3l_receptor.pdbqt
+4k26_rdkit_ligand_03,0,3,4k26/4k26_ligand.pdbqt,4k26/4k26_receptor.pdbqt
+1qy2_rdkit_ligand_04,1,4,1qy2/1qy2_ligand.pdbqt,1qy2/1qy2_receptor.pdbqt
+6hp9_rdkit_ligand_05,0,5,6hp9/6hp9_ligand.pdbqt,6hp9/6hp9_receptor.pdbqt
+6p83_decoy_05_ligand_02,0,2,6p83/6p83_decoy_5_ligand.pdbqt,6p83/6p83_receptor.pdbqt
+1zgi_decoy_02_ligand_04,0,4,1zgi/1zgi_decoy_2_ligand.pdbqt,1zgi/1zgi_receptor.pdbqt
+3ikd_decoy_09_ligand_04,0,4,3ikd/3ikd_decoy_9_ligand.pdbqt,3ikd/3ikd_receptor.pdbqt
+5uv1_rdkit_ligand_01,1,1,5uv1/5uv1_ligand.pdbqt,5uv1/5uv1_receptor.pdbqt
+3bu1_decoy_05_ligand_02,0,2,3bu1/3bu1_decoy_5_ligand.pdbqt,3bu1/3bu1_receptor.pdbqt
